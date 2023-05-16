@@ -13,14 +13,18 @@ const images = [
   },
 ];
 
+const galleryListEl = document.querySelector(".gallery");
+
 images.forEach((element) => {
-  const itemEl = document.createElement("li");
-  itemEl.classList.add("item3");
-  const imagesEl = document.createElement("img");
-  imagesEl.src = element.url;
-  imagesEl.alt = element.alt;
-  imagesEl.width = 320;
-  itemEl.appendChild(imagesEl);
-  const galleryListEl = document.querySelector(".gallery");
-  galleryListEl.appendChild(itemEl);
+  const item = `
+  <li>
+    <img src="${element.url}" alt="${element.alt}" width="320" height="200">
+  </li>
+  `;
+
+  galleryListEl.classList.add("animals-list");
+
+  galleryListEl.insertAdjacentHTML("beforeend", item);
 });
+
+console.log(galleryListEl);
